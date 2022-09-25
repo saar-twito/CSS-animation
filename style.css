@@ -1,0 +1,145 @@
+/* General setup */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+}
+
+.grass,
+.sky,
+.road {
+  position: relative;
+}
+
+.sky {
+  height: 40%;
+  background: linear-gradient(to top, #040308, #AD4A28, #DD723C, #FC7001, #DCB697, #9BA5AE, #3E5879, #020B1A);
+}
+
+.grass {
+  height: 30%;
+  background: #959595;
+}
+
+.road {
+  height: 30%;
+  background: dimgrey;
+  box-sizing: border-box;
+  border-top: 10px solid grey;
+  border-bottom: 10px solid grey;
+  width: 100%;
+}
+
+.lines {
+  box-sizing: border-box;
+  border: 5px dashed #fff;
+  height: 0px;
+  width: 100%;
+  position: absolute;
+  top: 45%;
+}
+
+
+/* Animation objects */
+.luigi {
+  margin-top: 150px;
+  animation:
+    moveit 12s linear infinite normal
+}
+
+.mario {
+  position: absolute;
+  top: -20px;
+  left: 0px;
+  /* animation: name, duration, speed-curve, delay, iteration-count direction fill-mode; */
+
+
+  /** Long variation */
+  animation-name: moveit;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+  animation-iteration-count: 2;
+  animation-direction: normal;
+
+  /** Short variation */
+  animation:
+    moveit 8s linear infinite normal,
+    jump 2s linear infinite 1s normal;
+}
+
+.cloud1 {
+  animation: moveit 60s linear infinite reverse;
+  opacity: 0.5;
+  position: absolute;
+  top: 200px;
+  width: 150px;
+}
+
+.cloud2 {
+  animation: moveit 50s linear infinite reverse;
+  opacity: 0.5;
+  width: 200px;
+}
+
+.roller {
+  width: 241px;
+  margin-top: 100px;
+  animation:
+    moveit 15s linear infinite reverse,
+    roller 2s linear infinite normal;
+}
+
+.roller2 {
+  width: 241px;
+  margin-top: 58px;
+  animation:
+    moveit 15s linear infinite reverse,
+    roller 2s linear infinite normal;
+}
+
+
+/* ANIMATIONS */
+
+/* Use this way when we have 2 state */
+@keyframes moveit {
+  from {
+    transform: translateX(-50px);
+  }
+
+  to {
+    transform: translateX(120vw)
+  }
+}
+
+/* Use this way when we have more then 2 state */
+/* We use the top property from mario and just manipulate it  */
+@keyframes jump {
+  0% {
+    top: -40px;
+  }
+
+  50% {
+    top: -60px;
+  }
+
+  100% {
+    top: -40px;
+  }
+}
+
+@keyframes roller {
+  0% {
+    margin-top: 58px;
+  }
+
+  50% {
+    margin-top: 30px;
+  }
+
+  100% {
+    margin-top: 58px;
+  }
+}
